@@ -67,4 +67,4 @@ The project consists of:
 
 # Author 
 
-Project developed by sedra Abou Daher - Databasteknologier för webben - DV1606
+Project developed by Sedra Abou Daher - Databasteknologier för webben - DV1606
