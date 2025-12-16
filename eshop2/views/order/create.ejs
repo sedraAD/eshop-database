@@ -1,0 +1,62 @@
+<%- include("../header", {title: title}); %>
+
+<h1>Create Order</h1>
+
+<% if (typeof error !== 'undefined') { %>
+    <p style="color: red;"><%= error %></p>
+<% } %>
+
+
+<form action="/eshop/order/add-product" method="POST">
+    <input type="hidden" name="order_id" value="<%= orderId %>">
+
+    <label for="produkt_id"> Choose product:</label>
+    <select name="produkt_id" id="produkt_id" required>
+        <% products.forEach(product => { %> 
+            <option value="<%= product.produktkod %>">
+                <%= product.namn %> - <%= product.pris %> kr (In stock: <%= product.lagerantal %>)
+            </option>
+        <% }) %>
+    </select>
+
+    <label for="antal">Quantity:</label>
+    <input type="number" name="antal" id="antal" min="1" required>
+
+    <button type="submit">Add product</button>
+</form>
+
+<h2>Products in this order:</h2>
+
+<% if (orderRows.length > 0) { %>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price per unit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% orderRows.forEach(row => { %>
+                <tr>
+                    <td><%= row.produkt_namn %></td>
+                    <td><%= row.antal %></td>
+                    <td><%= row.pris %> kr</td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <% } else { %>
+        <p>No products added to this order yet.</p>
+    <% } %>
+
+<hr>
+
+<form action="/eshop/order/confirm" method="POST" style="margin-top: 2em;">
+    <input type="hidden" name="order_id" value="<%= orderId %>">
+    <button type="submit">Confirm order</button>
+</form>
+
+<p><a href="/eshop/customer" >← Back to customers</a></p>
+
+<%- include("../footer"); %>

@@ -1,0 +1,28 @@
+<%- include("../header", {title: title}); %>
+
+<h1>Order #<%= orderId %> details:</h1>
+
+<% if (orderRows.length > 0) { %>
+    <table border="1">
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price per unit</th>
+            <th>Total</th>
+        </tr>
+        <% orderRows.forEach(row => { %>
+            <tr>
+                <td><%= row.produkt_namn %></td>
+                <td><%= row.antal %></td>
+                <td><%= row.pris %></td>
+                <td><%= row.antal * row.pris %> kr</td>
+            </tr>
+        <% }) %>
+    </table>
+<% } else { %> 
+    <p>No products in this order.</p>
+<% } %>
+
+<p><a href="/eshop/order" >← Back to orders</a></p>
+
+<%- include("../footer"); %>

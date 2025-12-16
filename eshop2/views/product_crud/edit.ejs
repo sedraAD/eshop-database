@@ -1,0 +1,26 @@
+<%- include("../header", {title: title}); %>
+
+<h1>Edit Product</h1>
+
+<form action="/eshop/product/edit/<%= produkt.produktkod %>" method="POST">
+    <p>
+        <label>Product name:<br>
+            <input type="text" name="namn" value= "<%= produkt.namn %>" required>
+        </label>
+    </p>
+    <p>
+        <label>Description:<br>
+            <textarea name="beskrivning" required><%= produkt.beskrivning %></textarea>
+        </label>
+    </p>
+    <p>
+        <label>Price:<br>
+            <input type="number" name="pris" value="<%= produkt.pris %>" required>
+        </label>
+    </p>
+    <p>
+        <button type="submit">Edit Product</button>
+    </p>
+</form>
+
+<%- include("../footer"); %>

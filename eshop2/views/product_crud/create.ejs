@@ -1,0 +1,26 @@
+<%- include("../header", {title: title}); %>
+
+<h1>Add New Product</h1>
+
+<form action="/eshop/product/create" method="POST">
+    <p>
+        <label>Product name:<br>
+            <input type="text" name="namn" required>
+        </label>
+    </p>
+    <p>
+        <label>Description:<br>
+            <textarea name="beskrivning" required></textarea>
+        </label>
+    </p>
+    <p>
+        <label>Price:<br>
+            <input type="number" name="pris" required>
+        </label>
+    </p>
+    <p>
+        <button type="submit">Add Product</button>
+    </p>
+</form>
+
+<%- include("../footer"); %>

@@ -1,0 +1,19 @@
+<%- include("header", {title: title}); %>
+
+<h1>Product Categories</h1>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    <% categories.forEach(category => { %>
+        <tr>
+            <td><%= category.kategori_id %></td>
+            <td><%= category.namn %></td>
+        </tr>
+    
+    <% }) %>
+</table>
+
+<%- include("footer"); %>

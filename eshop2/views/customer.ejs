@@ -1,0 +1,27 @@
+<%- include("header", {title: title}); %>
+
+<h1>Customers</h1>
+
+<table border="1">
+    <thread>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+        </tr>
+    </thread>
+    <tbody>
+        <% customers.forEach(customer => { %>
+            <tr>
+                <td><%= customer.id %></td>
+                <td><%= customer.namn %></td>
+                <td><%= customer.adress %></td>
+                <td><%= customer.telefonnuummer %></td>
+                <td><a href="/eshop/order/new/<%= customer.id %>">Create Order</a></td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+<%- include("footer"); %>
